@@ -37,6 +37,14 @@
                 'url' => route('page5'),
                 'current' => request()->routeIs('page5'),
             ],
+            [
+                'name' => 'Categoria',
+                'icon' => 'funnel',
+                'url' => route('admin.categories.index'),
+                'current' => request()->routeIs('admin.categories.*'),
+            ],
+            
+
         ],
     ];
 @endphp
