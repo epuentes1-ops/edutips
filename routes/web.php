@@ -7,29 +7,29 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::view('dashboard', 'dashboard')
+Route::view('aquiempiezatodo', 'aquiempiezatodo')
     ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+    ->name('aquiempiezatodo');
 
-Route::view('page1', 'page1')
+Route::view('tucaminodocente', 'tucaminodocente')
     ->middleware(['auth', 'verified'])
-    ->name('page1');
+    ->name('tucaminodocente');
 
-Route::view('page2', 'page2')
+Route::view('cajadeherramientas', 'cajadeherramientas')
     ->middleware(['auth', 'verified'])
-    ->name('page2');
+    ->name('cajadeherramientas');
 
-Route::view('page3', 'page3')
+Route::view('clasesconalma', 'clasesconalma')
     ->middleware(['auth', 'verified'])
-    ->name('page3'); 
+    ->name('clasesconalma'); 
 
-Route::view('page4', 'page4')
+Route::view('tupausanecesaria', 'tupausanecesaria')
     ->middleware(['auth', 'verified'])
-    ->name('page4');
+    ->name('tupausanecesaria');
     
-Route::view('page5', 'page5')
+Route::view('aldia', 'aldia')
     ->middleware(['auth', 'verified'])
-    ->name('page5');
+    ->name('aldia');
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');

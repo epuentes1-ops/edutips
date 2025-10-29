@@ -1,4 +1,4 @@
-<x-layouts.app :title="__('Mi ruta como docente-tutor ¿qué sigue en el camino?')">
+<x-layouts.app :title="__('Tu camino docente')">
     <div class="flex h-full w-full flex-1 flex-col gap-6 rounded-xl">
         <div class="p-6">
 

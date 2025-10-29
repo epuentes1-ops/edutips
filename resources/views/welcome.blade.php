@@ -50,8 +50,8 @@
                 <div class="w-100" style="max-width: 300px;">
                     @if (Route::has('login'))
                         @auth
-                            <a href="{{ url('/dashboard') }}" class="btn btn-secondary mb-3 w-100">
-                                Dashboard
+                            <a href="{{ url('/aquiempiezatodo') }}" class="btn btn-secondary mb-3 w-100">
+                                Aquí empieza todo
                             </a>
                         @else
                             <a href="{{ route('login') }}" class="btn btn-secondary mb-3 w-100">

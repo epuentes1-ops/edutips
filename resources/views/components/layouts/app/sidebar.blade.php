@@ -2,40 +2,40 @@
     $groups = [
         'Menu EduTips' => [
             [
-                'name' => 'Dashboard',
+                'name' => 'Aquí empieza todo',
                 'icon' => 'home',
-                'url' => route('dashboard'),
-                'current' => request()->routeIs('dashboard'),
+                'url' => route('aquiempiezatodo'),
+                'current' => request()->routeIs('aquiempiezatodo'),
             ],
             [
-                'name' => 'Mi ruta como docente-tutor ¿qué sigue en el camino?',
+                'name' => 'Tu camino docente',
+                'icon' => 'map',
+                'url' => route('tucaminodocente'),
+                'current' => request()->routeIs('tucaminodocente'),
+            ],
+            [
+                'name' => 'Caja de herramientas',
+                'icon' => 'rectangle-stack',
+                'url' => route('cajadeherramientas'),
+                'current' => request()->routeIs('cajadeherramientas'),
+            ],
+            [
+                'name' => 'Clases con alma',
                 'icon' => 'academic-cap',
-                'url' => route('page1'),
-                'current' => request()->routeIs('page1'),
+                'url' => route('clasesconalma'),
+                'current' => request()->routeIs('clasesconalma'),
             ],
             [
-                'name' => 'Page2',
-                'icon' => 'chart-bar',
-                'url' => route('page2'),
-                'current' => request()->routeIs('page2'),
+                'name' => 'Tu pausa necesaria',
+                'icon' => 'battery-50',
+                'url' => route('tupausanecesaria'),
+                'current' => request()->routeIs('tupausanecesaria'),
             ],
             [
-                'name' => 'Page3',
-                'icon' => 'chat-bubble-left-ellipsis',
-                'url' => route('page3'),
-                'current' => request()->routeIs('page3'),
-            ],
-            [
-                'name' => 'Page4',
-                'icon' => 'newspaper',
-                'url' => route('page4'),
-                'current' => request()->routeIs('page4'),
-            ],
-            [
-                'name' => 'Page5',
-                'icon' => 'paper-clip',
-                'url' => route('page5'),
-                'current' => request()->routeIs('page5'),
+                'name' => 'Al día',
+                'icon' => 'sun',
+                'url' => route('aldia'),
+                'current' => request()->routeIs('aldia'),
             ],
             [
                 'name' => 'Categoria',
@@ -64,7 +64,7 @@
     <flux:sidebar sticky stashable class="border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
         <flux:sidebar.toggle class="lg:hidden" icon="x-mark" />
 
-        <a href="{{ route('dashboard') }}" class="me-5 flex items-center space-x-2 rtl:space-x-reverse" wire:navigate>
+        <a href="{{ route('aquiempiezatodo') }}" class="me-5 flex items-center space-x-2 rtl:space-x-reverse" wire:navigate>
             <x-app-logo />
         </a>
 

@@ -1,14 +1,14 @@
-<x-layouts.app :title="__('Page2')">
+<x-layouts.app :title="__('Al día')">
 
-    <div class="p-6">
+ <div class="p-6">
         <h1 class="text-2xl font-semibold mb-6 text-gray-800">Banners Informativos</h1>
 
         <div x-data="{
             activeSlide: 0,
             slides: [
-                '/images/banners/banner1.png',
-                '/images/banners/banner2.png',
-                '/images/banners/banner3.png'
+                '/images/banners/banner4.png',
+                '/images/banners/banner3.png',
+                '/images/banners/banner2.png'
             ]
         }" x-init="setInterval(() => activeSlide = (activeSlide + 1) % slides.length, 4000)"
             class="relative w-full max-w-6xl mx-auto aspect-[16/6] sm:aspect-[16/7] md:aspect-[16/5] lg:aspect-[16/4] rounded-2xl overflow-hidden shadow-xl">
@@ -39,6 +39,6 @@
             </button>
 
         </div>
-
+    </div>
 
 </x-layouts.app>
