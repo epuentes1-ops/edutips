@@ -1,7 +1,30 @@
 <?php
 
+use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 use Livewire\Volt\Volt;
+use Illuminate\Support\Facades\Auth;
+
+Route::get('/auth/microsoft', function () {
+    return Socialite::driver('microsoft')->redirect();
+})->name('login.microsoft');
+
+Route::get('/auth/microsoft/callback', function () {
+    $microsoftUser = Socialite::driver('microsoft')->user();
+
+    $user = User::updateOrCreate(
+        ['email' => $microsoftUser->getEmail()],
+        [
+            'name' => $microsoftUser->getName(),
+            'email_verified_at' => now(),
+        ]
+    );
+
+    Auth::login($user);
+
+    return redirect('/dashboard');
+});
 
 Route::get('/', function () {
     return view('welcome');

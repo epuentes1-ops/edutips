@@ -74,6 +74,9 @@ new #[Layout('components.layouts.auth')] class extends Component {
 }; ?>
 
 <div class="flex flex-col gap-6">
+    <a href="{{ route('login.microsoft') }}" class="btn btn-outline-primary w-100">
+    <i class="bi bi-microsoft"></i> Iniciar sesión con Microsoft
+</a>
     
     <x-auth-header :title="__('Ingresa tus credenciales de acceso aquí')" :description="__('Ingrese su correo electrónico y contraseña a continuación para iniciar sesión')" />
 
