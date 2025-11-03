@@ -74,9 +74,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
 }; ?>
 
 <div class="flex flex-col gap-6">
-    <a href="{{ route('login.microsoft') }}" class="btn btn-outline-primary w-100">
-    <i class="bi bi-microsoft"></i> Iniciar sesión con Microsoft
-</a>
+    
     
     <x-auth-header :title="__('Ingresa tus credenciales de acceso aquí')" :description="__('Ingrese su correo electrónico y contraseña a continuación para iniciar sesión')" />
 
@@ -109,6 +107,21 @@ new #[Layout('components.layouts.auth')] class extends Component {
             </flux:button>
         </div>
     </form>
+
+    <div class="flex flex-col gap-6">
+    <a href="{{ route('login.microsoft') }}"
+        class="flex items-center justify-center gap-2 w-full px-4 py-2.5
+               bg-[#2F2FEE] hover:bg-[#1A1A9E] text-white font-semibold
+               rounded-lg shadow-md transition-all duration-300
+               focus:ring-2 focus:ring-offset-2 focus:ring-[#2F2FEE]">
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" class="w-5 h-5 fill-white">
+            <path d="M0 0h10.5v10.5H0zM12.5 0H23v10.5H12.5zM0 12.5h10.5V23H0zM12.5 12.5H23V23H12.5z"/>
+        </svg>
+
+        Iniciar sesión con Microsoft
+    </a>
+</div>
 
     @if (Route::has('register'))
         <div class="space-x-1 rtl:space-x-reverse text-center text-sm text-zinc-600 dark:text-zinc-400">
