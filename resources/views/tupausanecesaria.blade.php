@@ -1,4 +1,4 @@
-<x-layouts.app :title="__('Tu pausa necesaria')">
+<x-layouts.app :title="__('EduTips - Tu pausa necesaria')">
 
  <div class="p-6">
         <h1 class="text-2xl font-semibold mb-6 text-gray-800">Banners Informativos</h1>

@@ -1,4 +1,4 @@
-<x-layouts.app :title="__('Al día')">
+<x-layouts.app :title="__('EduTips - Al día')">
 
  <div class="p-6">
         <h1 class="text-2xl font-semibold mb-6 text-gray-800">Banners Informativos</h1>
@@ -39,6 +39,31 @@
             </button>
 
         </div>
+
+<!-- Sección Pregrado -->
+        <h3 class="text-lg font-semibold">Estado académico estudiantes Pregrado</h3>
+        <div class="w-full aspect-video mb-6">
+            <iframe 
+                title="Dashborad_Calificación_PLD"
+                src="https://app.powerbi.com/view?r=eyJrIjoiMjY3ZThiZTgtYjViNy00ZTYxLWI2YmMtNmY1ZjMwMGFhZTVmIiwidCI6IjRiZjM4ZWEyLTgzMmQtNDU1Mi1iNTA4LTQyMTU3MGRhNDNmZiIsImMiOjR9"
+                class="w-full h-full rounded-lg shadow"
+                frameborder="0" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Sección Posgrado -->
+        <h3 class="text-lg font-semibold">Estado académico estudiantes Posgrado</h3>
+        <div class="w-full aspect-video mb-6">
+            <iframe 
+                title="Dashborad_Calificación_PLD - Posgrado"
+                src="https://app.powerbi.com/view?r=eyJrIjoiNTY0M2NiMzQtNzcxYS00OTQyLWE1YjctZDM0MjA4NmM4Nzc0IiwidCI6IjRiZjM4ZWEyLTgzMmQtNDU1Mi1iNTA4LTQyMTU3MGRhNDNmZiIsImMiOjR9"
+                class="w-full h-full rounded-lg shadow"
+                frameborder="0" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
     </div>
 
 </x-layouts.app>

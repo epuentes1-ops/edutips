@@ -1,69 +1,91 @@
-<x-layouts.app :title="__('Tu camino docente')">
-    <div class="flex h-full w-full flex-1 flex-col gap-6 rounded-xl">
-        <div class="p-6">
+<x-layouts.app :title="__('EduTips - Tu camino docente')">
+    <div
+        class="flex flex-col items-center w-full gap-10 p-6 bg-white dark:bg-neutral-900 transition-colors duration-500">
 
-            <div x-data="{
-                activeSlide: 0,
-                slides: [
-                    '/images/banners/banner2.png'
+        <!-- Banner principal -->
+        <div x-data="{
+            activeSlide: 0,
+            slides: ['/images/banners/banner1.png']
+        }" x-init="setInterval(() => activeSlide = (activeSlide + 1) % slides.length, 4000)"
+            class="relative w-full max-w-6xl aspect-[16/6] sm:aspect-[16/7] md:aspect-[16/5] lg:aspect-[16/4] overflow-hidden rounded-2xl shadow-xl">
+            <template x-for="(slide, index) in slides" :key="index">
+                <img :src="slide" alt="Banner"
+                    class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-700 ease-in-out"
+                    :class="{ 'opacity-100': activeSlide === index, 'opacity-0': activeSlide !== index }">
+            </template>
+        </div>
 
-                ]
-            }" x-init="setInterval(() => activeSlide = (activeSlide + 1) % slides.length, 4000)"
-                class="relative w-full max-w-6xl mx-auto aspect-[16/6] sm:aspect-[16/7] md:aspect-[16/5] lg:aspect-[16/4] rounded-2xl overflow-hidden shadow-xl">
+        <!-- Mensaje principal -->
+        <div class="text-center max-w-4xl px-4">
+            <h2
+                class="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-gray-800 dark:text-gray-100 leading-relaxed">
+                Ser docente no es solo guiar, también es caminar con otros.
+                Aquí descubrirás los pasos, gestos y estrategias que hacen que acompañar sea aprender juntos.
+            </h2>
+        </div>
 
-                <!-- Imágenes -->
-                <template x-for="(slide, index) in slides" :key="index">
-                    <img :src="slide" alt="Banner"
-                        class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-700 ease-in-out"
-                        :class="{ 'opacity-100': activeSlide === index, 'opacity-0': activeSlide !== index }">
-                </template>
+        <!-- Descripción secundaria -->
+        <div class="text-center max-w-4xl px-4">
+            <p class="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 dark:text-gray-200 leading-relaxed">
+                En UCompensar creemos que ser docente-tutor va mucho más allá de enseñar.
+                Es acompañar, escuchar y conectar para que cada estudiante encuentre su propio camino de aprendizaje.
+            </p>
+        </div>
 
-                <!-- Indicadores (puntos inferiores) -->
-                <!--<div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
-                    <template x-for="(slide, index) in slides" :key="index">
-                        <button @click="activeSlide = index" class="w-3 h-3 rounded-full transition-all"
-                            :class="activeSlide === index ? 'bg-white scale-110' : 'bg-gray-400 opacity-70 hover:opacity-100'"></button>
-                    </template>
-                </div>-->
-
-                <!-- Flechas -->
-                <!--<button @click="activeSlide = (activeSlide - 1 + slides.length) % slides.length"
-                    class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-700 rounded-full p-2 shadow-md">
-                    ‹
-                </button>
-                <button @click="activeSlide = (activeSlide + 1) % slides.length"
-                    class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-700 rounded-full p-2 shadow-md">
-                    ›
-                </button>-->
-
+        <!-- Video principal -->
+        <div class="w-full max-w-5xl mt-6 rounded-xl overflow-hidden shadow-lg">
+            <div class="aspect-video">
+                <iframe title="vimeo-player"
+                    src="https://player.vimeo.com/video/1133845938?h=86b3d3a807&badge=0&autopause=0&player_id=0&app_id=58479"
+                    class="w-full h-full" frameborder="0" referrerpolicy="strict-origin-when-cross-origin"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                    allowfullscreen>
+                </iframe>
             </div>
         </div>
-        <!-- Sección Pregrado -->
-        <h3 class="text-lg font-semibold">Estado académico estudiantes Pregrado</h3>
-        <div class="w-full aspect-video mb-6">
-            <iframe 
-                title="Dashborad_Calificación_PLD"
-                src="https://app.powerbi.com/view?r=eyJrIjoiMjY3ZThiZTgtYjViNy00ZTYxLWI2YmMtNmY1ZjMwMGFhZTVmIiwidCI6IjRiZjM4ZWEyLTgzMmQtNDU1Mi1iNTA4LTQyMTU3MGRhNDNmZiIsImMiOjR9"
-                class="w-full h-full rounded-lg shadow"
-                frameborder="0" 
-                allowfullscreen>
-            </iframe>
+
+        <!-- Texto antes de los Genially -->
+        <div class="text-center max-w-4xl px-4">
+            <p class="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 dark:text-gray-200 leading-relaxed">
+                Empezar este viaje es mirarte en el espejo digital de tu día a día.
+                Cada respuesta te ayudará a descubrir cómo navegas, enseñas y conectas en la virtualidad.
+                Prepárate para recorrer tu camino como docente-tutor y conocer qué tipo de viajero digital eres.
+            </p>
         </div>
 
-        <!-- Sección Posgrado -->
-        <h3 class="text-lg font-semibold">Estado académico estudiantes Posgrado</h3>
-        <div class="w-full aspect-video mb-6">
-            <iframe 
-                title="Dashborad_Calificación_PLD - Posgrado"
-                src="https://app.powerbi.com/view?r=eyJrIjoiNTY0M2NiMzQtNzcxYS00OTQyLWE1YjctZDM0MjA4NmM4Nzc0IiwidCI6IjRiZjM4ZWEyLTgzMmQtNDU1Mi1iNTA4LTQyMTU3MGRhNDNmZiIsImMiOjR9"
-                class="w-full h-full rounded-lg shadow"
-                frameborder="0" 
-                allowfullscreen>
-            </iframe>
+        <!-- Genially 1 -->
+        <div class="w-full max-w-5xl mt-6 rounded-xl overflow-hidden shadow-lg">
+            <div class="aspect-video">
+                <iframe title="genially-1" src="https://view.genially.com/6900fc80214c3ad0b74c43f8"
+                    class="w-full h-full" frameborder="0" referrerpolicy="strict-origin-when-cross-origin"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
         </div>
+        <!-- Sección Texto + Genially -->
+        <div class="flex flex-col md:flex-row items-center justify-center gap-6 max-w-6xl mx-auto mt-8 px-4">
+            <!-- Texto -->
+            <div class="w-full md:w-1/3 text-center md:text-left">
+                <p class="text-sm sm:text-sm md:text-base lg:text-lg text-gray-700 dark:text-gray-200 leading-relaxed">
+                    Cada semestre es un nuevo viaje, y tú eres quien guía el camino.
+                    A veces hay tramos fáciles, otros con curvas, y momentos donde toca parar a tomar aire…
+                    Pero en cada paso hay algo valioso: aprender, acompañar y transformar.
+                </p>
+            </div>
+
+            <!-- Genially -->
+            <div class="w-full md:w-2/3 rounded-xl overflow-hidden shadow-lg">
+                <div class="aspect-video">
+                    <iframe title="genially-2" src="https://view.genially.com/690288b15151ac3654f965fa"
+                        class="w-full h-full" frameborder="0" referrerpolicy="strict-origin-when-cross-origin"
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
 
     </div>
-
-    
 </x-layouts.app>
-

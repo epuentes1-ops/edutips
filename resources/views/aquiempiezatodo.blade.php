@@ -1,67 +1,53 @@
-<x-layouts.app :title="__('Aqui empieza todo')">
-    <div class="flex h-full w-full flex-1 flex-col gap-4 rounded-xl">
-        <div class="p-6">
+<x-layouts.app :title="__('EduTips - Aquí empieza todo')">
+    <div class="flex flex-col items-center w-full gap-8 p-6">
 
-            <div x-data="{
+        <!-- Sección del banner -->
+        <div 
+            x-data="{
                 activeSlide: 0,
                 slides: [
-                    '/images/banners/banner1.png'
-
+                    '/images/banners/bannerInicial.png'
                 ]
-            }" x-init="setInterval(() => activeSlide = (activeSlide + 1) % slides.length, 4000)"
-                class="relative w-full max-w-6xl mx-auto aspect-[16/6] sm:aspect-[16/7] md:aspect-[16/5] lg:aspect-[16/4] rounded-2xl overflow-hidden shadow-xl">
+            }"
+            x-init="setInterval(() => activeSlide = (activeSlide + 1) % slides.length, 4000)"
+            class="relative w-full max-w-6xl aspect-[16/6] sm:aspect-[16/7] md:aspect-[16/5] lg:aspect-[16/4] overflow-hidden rounded-2xl shadow-xl"
+        >
+            <template x-for="(slide, index) in slides" :key="index">
+                <img 
+                    :src="slide" 
+                    alt="Banner"
+                    class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-700 ease-in-out"
+                    :class="{ 'opacity-100': activeSlide === index, 'opacity-0': activeSlide !== index }"
+                >
+            </template>
+        </div>
 
-                <!-- Imágenes -->
-                <template x-for="(slide, index) in slides" :key="index">
-                    <img :src="slide" alt="Banner"
-                        class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-700 ease-in-out"
-                        :class="{ 'opacity-100': activeSlide === index, 'opacity-0': activeSlide !== index }">
-                </template>
+        <!-- Textos centrados y responsivos -->
+        <div class="text-center max-w-4xl px-4">
+            <h2 class="text-lg sm:text-xl md:text-xl lg:text-2xl font-semibold text-gray-800 dark:text-gray-100 leading-relaxed">
+                Enseñar no es solo compartir conocimiento, es encender curiosidad.
+            </h2>
+        </div>
+        <div class="text-center max-w-4xl px-4">
+            <p class="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 dark:text-gray-200 leading-relaxed">
+                EduTips nace para acompañarte en ese viaje: un espacio creado por y para docentes-tutores que inspiran todos los días.
+            </p>
+        </div>
 
-                <!-- Indicadores (puntos inferiores) -->
-                <!--<div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
-                    <template x-for="(slide, index) in slides" :key="index">
-                        <button @click="activeSlide = index" class="w-3 h-3 rounded-full transition-all"
-                            :class="activeSlide === index ? 'bg-white scale-110' : 'bg-gray-400 opacity-70 hover:opacity-100'"></button>
-                    </template>
-                </div>-->
-
-                <!-- Flechas -->
-                <!--<button @click="activeSlide = (activeSlide - 1 + slides.length) % slides.length"
-                    class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-700 rounded-full p-2 shadow-md">
-                    ‹
-                </button>
-                <button @click="activeSlide = (activeSlide + 1) % slides.length"
-                    class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-700 rounded-full p-2 shadow-md">
-                    ›
-                </button>-->
-
+        <!-- Video fuera del recuadro principal -->
+        <div class="w-full max-w-5xl mt-6 rounded-xl overflow-hidden shadow-lg">
+            <div class="aspect-video">
+                <iframe 
+                    title="vimeo-player"
+                    src="https://player.vimeo.com/video/1133839487?h=b76c6c8bee&badge=0&autopause=0&player_id=0&app_id=58479"
+                    class="w-full h-full"
+                    frameborder="0" 
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                    allowfullscreen
+                ></iframe>
             </div>
         </div>
-        <div class="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div
-                class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
-                <x-placeholder-pattern
-                    class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
-            </div>
-            <div
-                class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
-                <x-placeholder-pattern
-                    class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
-            </div>
-            <div
-                class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
-                <x-placeholder-pattern
-                    class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
-            </div>
-        </div>
-        <div
-            class="relative h-full flex-1 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
 
-            <iframe title="vimeo-player" src="https://player.vimeo.com/video/879961277?h=fb2dc97155" width="100%"
-                height="100%" frameborder="0" referrerpolicy="strict-origin-when-cross-origin"
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                allowfullscreen></iframe>
-        </div>
     </div>
 </x-layouts.app>
