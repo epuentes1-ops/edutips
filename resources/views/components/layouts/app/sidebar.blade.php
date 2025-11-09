@@ -37,6 +37,12 @@
                 'url' => route('aldia'),
                 'current' => request()->routeIs('aldia'),
             ],
+            [
+                'name' => '¿Cómo van tus estudiantes?',
+                'icon' => 'chart-pie',
+                'url' => route('comovantusestudiantes'),
+                'current' => request()->routeIs('comovantusestudiantes'),
+            ],
         ],
     ];
 @endphp
