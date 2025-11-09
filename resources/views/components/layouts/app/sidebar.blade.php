@@ -37,14 +37,6 @@
                 'url' => route('aldia'),
                 'current' => request()->routeIs('aldia'),
             ],
-            [
-                'name' => 'Categoria',
-                'icon' => 'funnel',
-                'url' => route('admin.categories.index'),
-                'current' => request()->routeIs('admin.categories.*'),
-            ],
-            
-
         ],
     ];
 @endphp
@@ -64,7 +56,8 @@
     <flux:sidebar sticky stashable class="border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
         <flux:sidebar.toggle class="lg:hidden" icon="x-mark" />
 
-        <a href="{{ route('aquiempiezatodo') }}" class="me-5 flex items-center space-x-2 rtl:space-x-reverse" wire:navigate>
+        <a href="{{ route('aquiempiezatodo') }}" class="me-5 flex items-center space-x-2 rtl:space-x-reverse"
+            wire:navigate>
             <x-app-logo />
         </a>
 
@@ -120,71 +113,107 @@
 
                 <flux:menu.separator />
 
-                <form method="POST" action="{{ route('logout') }}" class="w-full">
-                    @csrf
-                    <flux:menu.item as="button" type="submit" icon="arrow-right-start-on-rectangle" class="w-full"
-                        data-test="logout-button">
-                        {{ __('Log Out') }}
-                    </flux:menu.item>
-                </form>
-            </flux:menu>
-        </flux:dropdown>
+                @hasanyrole('Administrador|Editor')
+                    <flux:menu.radio.group>
+                        <flux:menu.item :href="route('admin.users.index')" icon="users" wire:navigate>
+                            {{ __('Usuarios') }}
+                        </flux:menu.item>
+                    </flux:menu.radio.group>
 
-        
+                    <flux:menu.separator />
 
-    </flux:sidebar>
+                    <flux:menu.radio.group>
+                        <flux:menu.item :href="route('admin.categories.index')" icon="funnel" wire:navigate>
+                            {{ __('Categorías') }}
+                        </flux:menu.item>
+                    </flux:menu.radio.group>
 
-    <!-- Mobile User Menu -->
-    <flux:header class="lg:hidden">
-        <flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left" />
+                    <flux:menu.separator />
+                @endhasanyrole
 
-        <flux:spacer />
+                    <form method="POST" action="{{ route('logout') }}" class="w-full">
+                        @csrf
+                        <flux:menu.item as="button" type="submit" icon="arrow-right-start-on-rectangle" class="w-full"
+                            data-test="logout-button">
+                            {{ __('Log Out') }}
+                        </flux:menu.item>
+                    </form>
+                </flux:menu>
+            </flux:dropdown>
 
-        <flux:dropdown position="top" align="end">
-            <flux:profile :initials="auth()->user()->initials()" icon-trailing="chevron-down" />
 
-            <flux:menu>
-                <flux:menu.radio.group>
-                    <div class="p-0 text-sm font-normal">
-                        <div class="flex items-center gap-2 px-1 py-1.5 text-start text-sm">
-                            <span class="relative flex h-8 w-8 shrink-0 overflow-hidden rounded-lg">
-                                <span
-                                    class="flex h-full w-full items-center justify-center rounded-lg bg-neutral-200 text-black dark:bg-neutral-700 dark:text-white">
-                                    {{ auth()->user()->initials() }}
+
+        </flux:sidebar>
+
+        <!-- Mobile User Menu -->
+        <flux:header class="lg:hidden">
+            <flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left" />
+
+            <flux:spacer />
+
+            <flux:dropdown position="top" align="end">
+                <flux:profile :initials="auth()->user()->initials()" icon-trailing="chevron-down" />
+
+                <flux:menu>
+                    <flux:menu.radio.group>
+                        <div class="p-0 text-sm font-normal">
+                            <div class="flex items-center gap-2 px-1 py-1.5 text-start text-sm">
+                                <span class="relative flex h-8 w-8 shrink-0 overflow-hidden rounded-lg">
+                                    <span
+                                        class="flex h-full w-full items-center justify-center rounded-lg bg-neutral-200 text-black dark:bg-neutral-700 dark:text-white">
+                                        {{ auth()->user()->initials() }}
+                                    </span>
                                 </span>
-                            </span>
 
-                            <div class="grid flex-1 text-start text-sm leading-tight">
-                                <span class="truncate font-semibold">{{ auth()->user()->name }}</span>
-                                <span class="truncate text-xs">{{ auth()->user()->email }}</span>
+                                <div class="grid flex-1 text-start text-sm leading-tight">
+                                    <span class="truncate font-semibold">{{ auth()->user()->name }}</span>
+                                    <span class="truncate text-xs">{{ auth()->user()->email }}</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </flux:menu.radio.group>
+                    </flux:menu.radio.group>
 
-                <flux:menu.separator />
+                    <flux:menu.separator />
 
-                <flux:menu.radio.group>
-                    <flux:menu.item :href="route('profile.edit')" icon="cog" wire:navigate>{{ __('Settings') }}
-                    </flux:menu.item>
-                </flux:menu.radio.group>
+                    <flux:menu.radio.group>
+                        <flux:menu.item :href="route('profile.edit')" icon="cog" wire:navigate>{{ __('Settings') }}
+                        </flux:menu.item>
+                    </flux:menu.radio.group>
 
-                <flux:menu.separator />
+                    <flux:menu.separator />
 
-                <form method="POST" action="{{ route('logout') }}" class="w-full">
-                    @csrf
-                    <flux:menu.item as="button" type="submit" icon="arrow-right-start-on-rectangle" class="w-full"
-                        data-test="logout-button">
-                        {{ __('Log Out') }}
-                    </flux:menu.item>
-                </form>
-            </flux:menu>
-        </flux:dropdown>
-    </flux:header>
+                    @hasanyrole('Administrador|Editor')
+                    <flux:menu.radio.group>
+                        <flux:menu.item :href="route('admin.users.index')" icon="users" wire:navigate>
+                            {{ __('Usuarios') }}
+                        </flux:menu.item>
+                    </flux:menu.radio.group>
 
-    {{ $slot }}
+                    <flux:menu.separator />
 
-    @fluxScripts
-</body>
+                    <flux:menu.radio.group>
+                        <flux:menu.item :href="route('admin.categories.index')" icon="funnel" wire:navigate>
+                            {{ __('Categorías') }}
+                        </flux:menu.item>
+                    </flux:menu.radio.group>
 
-</html>
+                    <flux:menu.separator />
+                @endhasanyrole
+
+                    <form method="POST" action="{{ route('logout') }}" class="w-full">
+                        @csrf
+                        <flux:menu.item as="button" type="submit" icon="arrow-right-start-on-rectangle" class="w-full"
+                            data-test="logout-button">
+                            {{ __('Log Out') }}
+                        </flux:menu.item>
+                    </form>
+                </flux:menu>
+            </flux:dropdown>
+        </flux:header>
+
+        {{ $slot }}
+
+        @fluxScripts
+    </body>
+
+    </html>
