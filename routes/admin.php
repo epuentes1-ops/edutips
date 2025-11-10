@@ -12,4 +12,5 @@ Route::middleware(['auth', 'role:Administrador|Editor'])
     ->group(function () {
         Route::resource('users', UserController::class);
         Route::resource('categories', CategoryController::class);
+        Route::resource('reports', CategoryController::class);
     });

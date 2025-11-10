@@ -135,6 +135,14 @@
                     </flux:menu.radio.group>
 
                     <flux:menu.separator />
+
+                    <flux:menu.radio.group>
+                        <flux:menu.item :href="route('admin.reports.index')" icon="presentation-chart-bar" wire:navigate>
+                            {{ __('Reportes') }}
+                        </flux:menu.item>
+                    </flux:menu.radio.group>
+
+                    <flux:menu.separator />
                 @endhasanyrole
 
                     <form method="POST" action="{{ route('logout') }}" class="w-full">
@@ -200,6 +208,14 @@
                     <flux:menu.radio.group>
                         <flux:menu.item :href="route('admin.categories.index')" icon="funnel" wire:navigate>
                             {{ __('Categorías') }}
+                        </flux:menu.item>
+                    </flux:menu.radio.group>
+
+                    <flux:menu.separator />
+
+                    <flux:menu.radio.group>
+                        <flux:menu.item :href="route('admin.reports.index')" icon="presentation-chart-bar" wire:navigate>
+                            {{ __('Reportes') }}
                         </flux:menu.item>
                     </flux:menu.radio.group>
 
