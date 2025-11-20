@@ -5,26 +5,45 @@ use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use Livewire\Volt\Volt;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Auth\SAMLController;
 
-Route::get('/auth/microsoft', function () {
-    return Socialite::driver('microsoft')->redirect();
-})->name('login.microsoft');
+Route::prefix('saml')->group(function () {
 
-Route::get('/auth/microsoft/callback', function () {
-    $microsoftUser = Socialite::driver('microsoft')->user();
+    // SP → IdP (enviar al login de Microsoft)
+    Route::get('/login', [SAMLController::class, 'login'])->name('saml.login');
 
-    $user = User::updateOrCreate(
-        ['email' => $microsoftUser->getEmail()],
-        [
-            'name' => $microsoftUser->getName(),
-            'email_verified_at' => now(),
-        ]
-    );
+    // ACS (Assertion Consumer Service)
+    Route::post('/acs', [SAMLController::class, 'acs'])->name('saml.acs');
 
-    Auth::login($user);
+    // Metadata (para TI / Azure)
+    Route::get('/metadata', [SAMLController::class, 'metadata'])->name('saml.metadata');
 
-    return redirect('/dashboard');
+    // Logout SP
+    Route::get('/logout', [SAMLController::class, 'logout'])->name('saml.logout');
+
+    // Logout IdP → SP
+    Route::get('/sls', [SAMLController::class, 'sls'])->name('saml.sls');
 });
+
+// Route::get('/auth/microsoft', function () {
+//     return Socialite::driver('microsoft')->redirect();
+// })->name('login.microsoft');
+
+// Route::get('/auth/microsoft/callback', function () {
+//     $microsoftUser = Socialite::driver('microsoft')->user();
+
+//     $user = User::updateOrCreate(
+//         ['email' => $microsoftUser->getEmail()],
+//         [
+//             'name' => $microsoftUser->getName(),
+//             'email_verified_at' => now(),
+//         ]
+//     );
+
+//     Auth::login($user);
+
+//     return redirect('/aquiempiezatodo');
+// });
 
 Route::get('/', function () {
     return view('welcome');

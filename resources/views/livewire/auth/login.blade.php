@@ -109,7 +109,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
     </form>
 
     <div class="flex flex-col gap-6">
-    <a href="{{ route('login.microsoft') }}"
+    <a href="{{ route('saml.login') }}"
         class="flex items-center justify-center gap-2 w-full px-4 py-2.5
                bg-[#2F2FEE] hover:bg-[#1A1A9E] text-white font-semibold
                rounded-lg shadow-md transition-all duration-300
