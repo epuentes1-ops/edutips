@@ -1,6 +1,6 @@
 <x-layouts.app :title="__('EduTips - Tu camino docente')">
     <div
-        class="flex flex-col items-center w-full gap-10 p-6 bg-white dark:bg-neutral-900 transition-colors duration-500">
+        class="flex flex-col items-center w-full gap-10 p-6">
 
         <!-- Banner principal -->
         <div x-data="{
