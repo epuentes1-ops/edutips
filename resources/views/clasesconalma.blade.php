@@ -35,8 +35,6 @@
         </div>
 
         <div class="flex flex-col md:flex-row items-center justify-center gap-6 max-w-6xl mx-auto mt-8 px-4">
-
-
             <div class="w-full md:w-2/3 rounded-xl overflow-hidden shadow-lg">
                 <img src="/images/ccalma/Mod_form_UCompensar.png" alt="imagen" class="w-full h-auto object-cover">
             </div>
@@ -50,7 +48,6 @@
                     aprender.
                 </p>
             </div>
-
         </div>
 
         <div class="w-full text-left">
@@ -65,7 +62,7 @@
             <p class="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 dark:text-gray-200 leading-relaxed">
                 Cada encuentro sincrónico es una oportunidad para que la clase cobre vida.
                 No se trata solo de conectarse o abrir la cámara, en UCompensar creemos que enseñar también es
-                conversar, reírse, equivocarse y aprender juntos.Descubre cómo hacer de cada encuentro un espacio vivo,
+                conversar, reírse, equivocarse y aprender juntos. Descubre cómo hacer de cada encuentro un espacio vivo,
                 cercano y con propósito.
             </p>
         </div>
@@ -77,7 +74,6 @@
                     class="w-full h-full" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
-
 
         <div class="w-full text-left">
             <h4
@@ -97,69 +93,177 @@
             </div>
         </div>
 
-        <div class="w-full text-left">
-            <h4
-                class="text-base sm:text-lg md:text-xl lg:text-xl font-semibold text-gray-800 dark:text-gray-100 leading-relaxed text-left">
-                Seguimiento y apoyo individual/grupal
-            </h4>
-        </div>
+        <!-- ACORDEÓN-->
+        <div x-data="{ openSection: 'seguimiento' }" class="w-full max-w-6xl mx-auto mt-8 px-4 space-y-6">
 
+            <!-- Ítem 1: Seguimiento y apoyo individual/grupal -->
+            <div class="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
+                <button class="w-full flex justify-between items-center px-4 py-3 text-left focus:outline-none"
+                    @click="openSection = openSection === 'seguimiento' ? null : 'seguimiento'">
+                    <h4
+                        class="text-base sm:text-lg md:text-xl lg:text-xl font-semibold text-gray-800 dark:text-gray-100">
+                        Seguimiento y apoyo individual/grupal
+                    </h4>
+                    <span x-text="openSection === 'seguimiento' ? '-' : '+'"
+                        class="text-xl font-bold text-gray-700 dark:text-gray-200"></span>
+                </button>
 
-        <!-- Sección Texto + Genially -->
-        <div class="flex flex-col md:flex-row items-center justify-center gap-6 max-w-6xl mx-auto mt-8 px-4">
-            <!-- Texto -->
-            <div class="w-full md:w-1/3 text-center md:text-left">
-                <p class="text-sm sm:text-sm md:text-base lg:text-lg text-gray-700 dark:text-gray-200 leading-relaxed">
-                    Acompañar es estar presente, incluso a la distancia.
-                    Este espacio te mostrará cómo hacer seguimiento a tus grupos y estudiantes, reconociendo sus avances
-                    y apoyando sus procesos.
-                    Porque detrás de cada número o reporte, hay una historia que crece con tu guía.
-                </p>
-            </div>
-
-            <!-- Genially -->
-            <div class="w-full md:w-2/3 rounded-xl overflow-hidden shadow-lg">
-                <div class="aspect-video">
-                    <iframe title="genially-2" src="https://view.genially.com/6909723df5c74b07c13f0944"
-                        class="w-full h-full" frameborder="0" referrerpolicy="strict-origin-when-cross-origin"
-                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-        </div>
-
-        <div class="w-full text-left">
-            <h4
-                class="text-base sm:text-lg md:text-xl lg:text-xl font-semibold text-gray-800 dark:text-gray-100 leading-relaxed text-left">
-                Estrategias de comunicación sincrónica y asincrónica
-            </h4>
-        </div>
-
-        <!-- Video principal -->
-
-
-        <div class="flex flex-col md:flex-row items-center justify-center gap-6 max-w-6xl mx-auto mt-8 px-4">
-
-            <div class="w-full max-w-5xl mt-6 rounded-xl overflow-hidden shadow-lg">
-                <div class="aspect-video">
-                    <iframe title="vimeo-player" src="https://player.vimeo.com/video/1133852219?h=6eef8cd54a"
-                        class="w-full h-full" frameborder="0" referrerpolicy="strict-origin-when-cross-origin"
-                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                        allowfullscreen></iframe>
+                <div x-show="openSection === 'seguimiento'" x-collapse
+                    class="border-t border-gray-200 dark:border-gray-700">
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-6 mt-6 px-4 pb-6">
+                        <!-- Texto -->
+                        <div class="w-full md:w-1/3 text-center md:text-left">
+                            <p
+                                class="text-sm sm:text-sm md:text-base lg:text-lg text-gray-700 dark:text-gray-200 leading-relaxed">
+                                Acompañar es estar presente, incluso a la distancia.
+                                Este espacio te mostrará cómo hacer seguimiento a tus grupos y estudiantes, reconociendo
+                                sus avances
+                                y apoyando sus procesos.
+                                Porque detrás de cada número o reporte, hay una historia que crece con tu guía.
+                            </p>
+                        </div>
+                        <!-- Genially -->
+                        <div class="w-full md:w-2/3 rounded-xl overflow-hidden shadow-lg">
+                            <div class="aspect-video">
+                                <iframe title="genially-seguimiento"
+                                    src="https://view.genially.com/6909723df5c74b07c13f0944" class="w-full h-full"
+                                    frameborder="0" referrerpolicy="strict-origin-when-cross-origin"
+                                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="w-full md:w-1/3 text-center md:text-left">
-                <p class="text-sm sm:text-sm md:text-base lg:text-lg text-gray-700 dark:text-gray-200 leading-relaxed">
-                    Comunicar no es solo hablar, es saber conectar incluso a la distancia.
-                    Este video te muestra cómo los encuentros sincrónicos pueden ser tu mejor aliado para mantener viva
-                    la conversación con tus estudiantes.
-                </p>
+            <!-- Ítem 2: Estrategias de comunicación sincrónica y asincrónica -->
+            <div class="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
+                <button class="w-full flex justify-between items-center px-4 py-3 text-left focus:outline-none"
+                    @click="openSection = openSection === 'estrategias' ? null : 'estrategias'">
+                    <h4
+                        class="text-base sm:text-lg md:text-xl lg:text-xl font-semibold text-gray-800 dark:text-gray-100">
+                        Estrategias de comunicación sincrónica y asincrónica
+                    </h4>
+                    <span x-text="openSection === 'estrategias' ? '-' : '+'"
+                        class="text-xl font-bold text-gray-700 dark:text-gray-200"></span>
+                </button>
+
+                <div x-show="openSection === 'estrategias'" x-collapse
+                    class="border-t border-gray-200 dark:border-gray-700">
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-6 mt-6 px-4 pb-6">
+                        <!-- Genially -->
+                        <div class="w-full md:w-2/3 rounded-xl overflow-hidden shadow-lg">
+                            <div class="aspect-video">
+                                <iframe title="genially-estrategias"
+                                    src="https://player.vimeo.com/video/1133852219?h=6eef8cd54a" class="w-full h-full"
+                                    frameborder="0" referrerpolicy="strict-origin-when-cross-origin"
+                                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+
+                        <!-- Texto -->
+                        <div class="w-full md:w-1/3 text-center md:text-left">
+                            <p
+                                class="text-sm sm:text-sm md:text-base lg:text-lg text-gray-700 dark:text-gray-200 leading-relaxed">
+                                Comunicar no es solo hablar, es saber conectar incluso a la distancia.
+                                Este video te muestra cómo los encuentros sincrónicos pueden ser tu mejor aliado para
+                                mantener viva
+                                la conversación con tus estudiantes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- Ítem 3: Niveles de lectura -->
+            <div class="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
+                <button class="w-full flex justify-between items-center px-4 py-3 text-left focus:outline-none"
+                    @click="openSection = openSection === 'niveles' ? null : 'niveles'">
+                    <h4
+                        class="text-base sm:text-lg md:text-xl lg:text-xl font-semibold text-gray-800 dark:text-gray-100">
+                        Niveles de lectura
+                    </h4>
+                    <span x-text="openSection === 'niveles' ? '-' : '+'"
+                        class="text-xl font-bold text-gray-700 dark:text-gray-200"></span>
+                </button>
+
+                <div x-show="openSection === 'niveles'" x-collapse
+                    class="border-t border-gray-200 dark:border-gray-700">
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-6 mt-6 px-4 pb-6">
+                        <!-- Texto -->
+                        <div class="w-full md:w-1/3 text-center md:text-left">
+                            <p
+                                class="text-sm sm:text-sm md:text-base lg:text-lg text-gray-700 dark:text-gray-200 leading-relaxed">
+                                Leemos todo el día: mensajes, caras, silencios y hasta recetas que no salen como en la
+                                foto.
+                                Pero leer de verdad es detenerse, conectar y encontrar sentido.
+                                En UCompensar te invitamos a leer con otros ojos, a descubrir lo que el texto dice… y lo
+                                que te
+                                deja pensando.
+                            </p>
+                        </div>
+                        <!-- Genially -->
+                        <div class="w-full md:w-2/3 rounded-xl overflow-hidden shadow-lg">
+                            <div class="aspect-video">
+                                <iframe title="genially-niveles-lectura"
+                                    src="https://view.genially.com/68bdb2c9e52ddd58a801f0e9" class="w-full h-full"
+                                    frameborder="0" referrerpolicy="strict-origin-when-cross-origin"
+                                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ítem 4: Herramientas externas -->
+            <div class="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
+                <button class="w-full flex justify-between items-center px-4 py-3 text-left focus:outline-none"
+                    @click="openSection = openSection === 'herramientas' ? null : 'herramientas'">
+                    <h4
+                        class="text-base sm:text-lg md:text-xl lg:text-xl font-semibold text-gray-800 dark:text-gray-100">
+                        Herramientas externas para dinamizar los encuentros
+                    </h4>
+                    <span x-text="openSection === 'herramientas' ? '-' : '+'"
+                        class="text-xl font-bold text-gray-700 dark:text-gray-200"></span>
+                </button>
+
+                <div x-show="openSection === 'herramientas'" x-collapse
+                    class="border-t border-gray-200 dark:border-gray-700">
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-6 mt-6 px-4 pb-6">
+                        <!-- Genially -->
+                        <div class="w-full md:w-2/3 rounded-xl overflow-hidden shadow-lg">
+                            <div class="aspect-video">
+                                <iframe title="genially-herramientas"
+                                    src="https://view.genially.com/66bb8c8990672ae837c00954" class="w-full h-full"
+                                    frameborder="0" referrerpolicy="strict-origin-when-cross-origin"
+                                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+
+                        <!-- Texto -->
+                        <div class="w-full md:w-1/3 text-center md:text-left">
+                            <p
+                                class="text-sm sm:text-sm md:text-base lg:text-lg text-gray-700 dark:text-gray-200 leading-relaxed">
+                                Hay clases que se sienten vivas desde el primer minuto, donde las ideas fluyen y la
+                                energía se
+                                nota.
+                                Detrás de eso hay un profe que sabe usar las herramientas adecuadas: simples, prácticas
+                                y llenas
+                                de ritmo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-
-
 
     </div>
 
