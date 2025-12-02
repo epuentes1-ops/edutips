@@ -6,9 +6,7 @@
         <div x-data="{
             activeSlide: 0,
             slides: [
-                '/images/banners/banner4.png',
-                '/images/banners/banner3.png',
-                '/images/banners/banner2.png'
+                '/images/banners/banner6.png'
             ]
         }" x-init="setInterval(() => activeSlide = (activeSlide + 1) % slides.length, 4000)"
             class="relative w-full max-w-6xl mx-auto aspect-[16/6] sm:aspect-[16/7] md:aspect-[16/5] lg:aspect-[16/4] rounded-2xl overflow-hidden shadow-xl">
