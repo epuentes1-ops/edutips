@@ -131,7 +131,7 @@
 
             <!-- Video 13 -->
             <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700 cursor-pointer group"
-                onclick="openModal('https://view.genially.com/691ed98cebc829189bdff04e%22', 'Tips de buenas prácticas tecnologicas','Así como todo aventurero necesita su kit antes de salir al camino, todo docente tutor necesita su kit tecnológico para enseñar sin estrés y con todo bajo control. Cada “herramienta” del kit representa una buena práctica esencial para cuidar el entorno digital, prevenir imprevistos y garantizar una experiencia virtual fluida y humana.')">
+                onclick="openModal('https://view.genially.com/691ed98cebc829189bdff04e', 'Tips de buenas prácticas tecnologicas','Así como todo aventurero necesita su kit antes de salir al camino, todo docente tutor necesita su kit tecnológico para enseñar sin estrés y con todo bajo control. Cada “herramienta” del kit representa una buena práctica esencial para cuidar el entorno digital, prevenir imprevistos y garantizar una experiencia virtual fluida y humana.')">
                 <!-- Imagen del video -->
                 <img src="/images/card 1.png" alt="Tips de buenas prácticas tecnologicas"
                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
