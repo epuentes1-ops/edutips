@@ -104,7 +104,7 @@
 
             <!-- Video 10 -->
             <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700 cursor-pointer group"
-                onclick="openModal('https://player.vimeo.com/video/885851845', 'Autoevaluación','La autoevaluación invita a reflexionar y a reconocer logros. En este video verás cómo validar este recurso y revisar las notas en el libro de calificaciones. Un paso corto que fortalece el crecimiento de cada estudiante.')">
+                onclick="openModal('https://player.vimeo.com/video/885851845?h=15c53053ee', 'Autoevaluación','La autoevaluación invita a reflexionar y a reconocer logros. En este video verás cómo validar este recurso y revisar las notas en el libro de calificaciones. Un paso corto que fortalece el crecimiento de cada estudiante.')">
                 <!-- Imagen del video -->
                 <img src="/images/card 2.png" alt="Autoevaluación"
                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
