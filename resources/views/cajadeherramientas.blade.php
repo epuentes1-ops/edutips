@@ -51,7 +51,7 @@
                 <!-- Imagen del video -->
                 <img src="/images/card 4.png" alt="Manejo de recurso lección"
                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                <p class="absolute bottom-4 left-4 text-[#00adba] font-semibold">Manejo de recurso lección</p>
+                <p class="absolute bottom-4 left-4 text-white font-semibold">Manejo de recurso lección</p>
             </div>
 
             <!-- Video 5 -->
@@ -60,7 +60,7 @@
                 <!-- Imagen del video -->
                 <img src="/images/card 1.png" alt="Creación de grupos manuales"
                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                <p class="absolute bottom-4 left-4 text-[#00adba] font-semibold">Creación de grupos manuales</p>
+                <p class="absolute bottom-4 left-4 text-white font-semibold">Creación de grupos manuales</p>
             </div>
 
             <!-- Video 6 -->
@@ -69,7 +69,7 @@
                 <!-- Imagen del video -->
                 <img src="/images/card 2.png" alt="Los estudiantes pueden crear sus propios grupos"
                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                <p class="absolute bottom-4 left-4 text-[#00adba] font-semibold">Los estudiantes pueden crear sus
+                <p class="absolute bottom-4 left-4 text-white font-semibold">Los estudiantes pueden crear sus
                     propios grupos</p>
             </div>
 
@@ -79,7 +79,7 @@
                 <!-- Imagen del video -->
                 <img src="/images/card 3.png" alt="Creación de encuentros sincrónicos en la Solución E-Learning"
                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                <p class="absolute bottom-4 left-4 text-gray-900 font-semibold">Creación de encuentros sincrónicos en la
+                <p class="absolute bottom-4 left-4 text-white font-semibold">Creación de encuentros sincrónicos en la
                     Solución E-Learning</p>
             </div>
 
@@ -89,7 +89,7 @@
                 <!-- Imagen del video -->
                 <img src="/images/card 4.png" alt="Encuentros sincrónicos para dos o más grupos"
                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                <p class="absolute bottom-4 left-4 text-gray-900 font-semibold">Encuentros sincrónicos para dos o más
+                <p class="absolute bottom-4 left-4 text-white font-semibold">Encuentros sincrónicos para dos o más
                     grupos</p>
             </div>
 
@@ -99,7 +99,7 @@
                 <!-- Imagen del video -->
                 <img src="/images/card 1.png" alt="Cómo evaluar y retroalimentar"
                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                <p class="absolute bottom-4 left-4 text-gray-900 font-semibold">Cómo evaluar y retroalimentar</p>
+                <p class="absolute bottom-4 left-4 text-white font-semibold">Cómo evaluar y retroalimentar</p>
             </div>
 
             <!-- Video 10 -->
@@ -108,7 +108,7 @@
                 <!-- Imagen del video -->
                 <img src="/images/card 2.png" alt="Autoevaluación"
                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                <p class="absolute bottom-4 left-4 text-[#00adba] font-semibold">Autoevaluación</p>
+                <p class="absolute bottom-4 left-4 text-white font-semibold">Autoevaluación</p>
             </div>
 
             <!-- Video 11 -->
@@ -117,7 +117,7 @@
                 <!-- Imagen del video -->
                 <img src="/images/card 3.png" alt="Coevaluación docente (tarea)"
                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                <p class="absolute bottom-4 left-4 text-[#00adba] font-semibold">Coevaluación docente (tarea)</p>
+                <p class="absolute bottom-4 left-4 text-white font-semibold">Coevaluación docente (tarea)</p>
             </div>
 
             <!-- Video 12 -->
@@ -126,7 +126,7 @@
                 <!-- Imagen del video -->
                 <img src="/images/card 4.png" alt="Consultar Libro de calificaciones"
                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                <p class="absolute bottom-4 left-4 text-[#00adba] font-semibold">Consultar Libro de calificaciones</p>
+                <p class="absolute bottom-4 left-4 text-white font-semibold">Consultar Libro de calificaciones</p>
             </div>
 
             <!-- Video 13 -->
@@ -135,7 +135,7 @@
                 <!-- Imagen del video -->
                 <img src="/images/card 1.png" alt="Tips de buenas prácticas tecnologicas"
                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                <p class="absolute bottom-4 left-4 text-[#00adba] font-semibold">Tips de buenas prácticas tecnologicas
+                <p class="absolute bottom-4 left-4 text-white font-semibold">Tips de buenas prácticas tecnologicas
                 </p>
             </div>
 
