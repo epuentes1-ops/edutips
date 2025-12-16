@@ -7,9 +7,9 @@
 
     <title>{{ $title ?? config('app.name') }}</title>
 
-    <link rel="icon" href="{{ asset('images/Logos/faviconEdutips.svg') }}" sizes="32x32">
-    <link rel="icon" href="{{ asset('images/Logos/faviconEdutips.svg') }}" sizes="192x192">
-    <link rel="icon" href="{{ asset('images/Logos/faviconEdutips.svg') }}">
+    <link rel="icon" href="{{ asset('images/logos/faviconEdutips.svg') }}" sizes="32x32">
+    <link rel="icon" href="{{ asset('images/logos/faviconEdutips.svg') }}" sizes="192x192">
+    <link rel="icon" href="{{ asset('images/logos/faviconEdutips.svg') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -32,7 +32,7 @@
                 style="background-color: rgba(255, 255, 255, 0.6);">
 
                 <!-- Logo vertical -->
-                <img src="{{ asset('images/Logos/logocolorVertical.svg') }}" 
+                <img src="{{ asset('images/logos/logocolorVertical.svg') }}" 
                      alt="Logo" 
                      class="img-fluid mb-3"
                      style="max-width: 180px; width: 80%; height: auto;">
@@ -41,7 +41,7 @@
                 <h2 class="fw-semibold mb-3">Bienvenidos a</h2>
 
                 <!-- Logo principal -->
-                <img src="{{ asset('images/Logos/LogoEdutips.svg') }}" 
+                <img src="{{ asset('images/logos/LogoEdutips.svg') }}" 
                      alt="Logo2" 
                      class="img-fluid mb-4"
                      style="max-width: 250px; width: 90%; height: auto;">
