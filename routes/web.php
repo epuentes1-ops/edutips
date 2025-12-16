@@ -73,9 +73,9 @@ Route::view('aldia', 'aldia')
     ->middleware(['auth', 'verified'])
     ->name('aldia');
 
-// Route::view('comovantusestudiantes', 'comovantusestudiantes')
-//     ->middleware(['auth', 'verified'])
-//     ->name('comovantusestudiantes');
+Route::view('comovantusestudiantes', 'comovantusestudiantes')
+    ->middleware(['auth', 'verified'])
+    ->name('comovantusestudiantes');
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
