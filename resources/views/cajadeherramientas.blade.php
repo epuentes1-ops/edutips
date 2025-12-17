@@ -31,7 +31,7 @@
             <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700 cursor-pointer group"
                 onclick="openModal('https://player.vimeo.com/video/1145351302', 'Nuestros cursos tienen un nuevo look', 'Porque aprender también puede sentirse fácil, cercano y visualmente bonito… Te damos la bienvenida a una nueva forma de vivir tus cursos virtuales.')">
                 <!-- Imagen del video -->
-                <img src="/images/miniaturas/banner2.png" alt="Nuestros cursos tienen un nuevo look"
+                <img src="/images/miniaturas/banner7.png" alt="Nuestros cursos tienen un nuevo look"
                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                 <p class="absolute bottom-4 left-4 text-white font-semibold">Nuestros cursos tienen un nuevo look</p>
             </div>
@@ -77,7 +77,7 @@
             <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700 cursor-pointer group"
                 onclick="openModal('https://player.vimeo.com/video/990795198', 'Creación de encuentros sincrónicos en la Solución E-Learning','Cada clase tiene su propio ritmo y su espacio para encontrarse, incluso detrás de una pantalla. Configurar tu sala WebEx es abrir la puerta a ese salón virtual donde todo sucede. Aquí verás cómo crear, programar y llevar tus clases con orden y buena conexión.')">
                 <!-- Imagen del video -->
-                <img src="/images/miniaturas/banner7.png" alt="Creación de encuentros sincrónicos en la Solución E-Learning"
+                <img src="/images/miniaturas/banner2.png" alt="Creación de encuentros sincrónicos en la Solución E-Learning"
                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                 <p class="absolute bottom-4 left-4 text-white font-semibold">Creación de encuentros sincrónicos en la
                     Solución E-Learning</p>
