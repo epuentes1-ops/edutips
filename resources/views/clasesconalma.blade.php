@@ -266,5 +266,5 @@
         </div>
 
     </div>
-
+    @include('partials.footer')
 </x-layouts.app>

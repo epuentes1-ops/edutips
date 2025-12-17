@@ -141,5 +141,5 @@
         </div> <!-- fin x-data tabs -->
 
     </div>
-
+    @include('partials.footer')
 </x-layouts.app>

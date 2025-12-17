@@ -185,4 +185,5 @@
             document.getElementById('modalText').innerText = '';
         }
     </script>
+    @include('partials.footer')
 </x-layouts.app>
