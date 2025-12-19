@@ -1,4 +1,44 @@
 <x-layouts.app :title="__('EduTips - Caja de herramientas')">
+
+    <style>
+        /* Ajuste del iframe */
+        #videoModal iframe {
+            width: 100%;
+            /* Ocupa el 100% del ancho del modal */
+            height: 50vh;
+            /* Ajusta la altura en relación a la ventana */
+        }
+
+        /* Asegura que el botón de cierre esté accesible */
+        #videoModal button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 4rem;
+            white-space: normal;
+            cursor: pointer;
+            z-index: 1060;
+            /* Asegura que el botón esté por encima del contenido */
+            color: #00adba;
+
+            /* Puedes cambiar el color del botón */
+            /* Ajuste para pantallas más pequeñas */
+            @media (max-width: 768px) {
+                #videoModal {
+                    width: 100%;
+                    /* Usa el 100% del ancho en pantallas más pequeñas */
+                    height: 100%;
+                    /* Usa el 100% de la altura de la pantalla */
+                }
+
+                #videoModal iframe {
+                    height: 70vh;
+                    /* Ajusta la altura del video */
+                }
+            }
+    </style>
+
+
     <div class="flex flex-col items-center w-full gap-10 p-6">
         <!-- Banner principal -->
         <div
@@ -149,7 +189,7 @@
             <div class="bg-white dark:bg-gray-800 rounded-xl w-full max-w-4xl p-6 relative">
                 <!-- Botón de cierre ajustado para pantallas pequeñas -->
                 <button onclick="closeModal()"
-                    class="absolute top-2 right-2 sm:right-4 text-[#00adba] font-bold text-4xl cursor-pointer">
+                    class="absolute top-2 right-2 sm:right-4 text-[#00adba] font-bold text-4xl cursor-pointer ;">
                     ×
                 </button><br>
                 <div class="flex flex-col items-center">
@@ -168,20 +208,24 @@
 
     </div>
 
+
+
     <script>
         function openModal(videoUrl, videoTitle, videoText) {
             document.getElementById('modalVideo').src = videoUrl;
             document.getElementById('modalTitle').innerText = videoTitle;
             document.getElementById('modalText').innerText = videoText;
-            // Mostrar el modal con flex
-            document.getElementById('videoModal').classList.remove('hidden');
-            document.getElementById('videoModal').classList.add('flex');
+            let modal = document.getElementById('videoModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            modal.style.animation = 'fadeIn 0.5s ease';
         }
 
         function closeModal() {
-            document.getElementById('videoModal').classList.add('hidden');
-            document.getElementById('videoModal').classList.remove('flex');
-            document.getElementById('modalVideo').src = '';
+            let modal = document.getElementById('videoModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.getElementById('modalVideo').src = ''; /* Detiene el video al cerrar */
             document.getElementById('modalTitle').innerText = '';
             document.getElementById('modalText').innerText = '';
         }
