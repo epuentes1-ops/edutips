@@ -54,7 +54,6 @@
 
 <head>
     @include('partials.head')
-
 </head>
 
 <body class="min-h-screen bg-white dark:bg-zinc-800">
@@ -229,6 +228,7 @@
     </flux:header>
 
     {{ $slot }}
+    
 
     @fluxScripts
 </body>

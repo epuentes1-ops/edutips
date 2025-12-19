@@ -45,6 +45,13 @@
         line-height: 1.6;
     }
 
+    .footer-column.large a {
+        color: #ccc;
+        font-size: 12px;
+        text-decoration: none;
+        line-height: 1.6;
+    }
+
     .footer-column a:hover {
         text-decoration: underline;
     }
@@ -179,7 +186,7 @@
 <footer class="footer">
     <div class="footer-top">
         <!-- Columna 1 -->
-        <div class="footer-column">
+        <div class="footer-column large">
             <img src="https://ucompensar.edu.co/wp-content/uploads/2021/09/Logo-Fundacion-Universitaria-compensar.svg"
                 alt="Logo Fundación Universitaria Compensar" style="max-width: 200px; margin-bottom: 15px;">
             <p>
@@ -187,8 +194,7 @@
                 2020. – VIGILADA MINEDUCACIÓN<br><br>
                 Para requerimientos de autoridades, tutelas o notificaciones judiciales por favor dirigirse al
                 correo:<br>
-                <a
-                    href="mailto:notificacionesjudiciales@ucompensar.edu.co">notificacionesjudiciales@ucompensar.edu.co</a>
+                <a href="mailto:notificacionesjudiciales@ucompensar.edu.co">notificacionesjudiciales@ucompensar.edu.co</a>
             </p>
         </div>
 
@@ -205,7 +211,7 @@
         </div>
 
         <!-- Columna 3 -->
-        <div class="footer-column large">
+        <div class="footer-column">
             <div class="icontec-certifications">
                 <a href="https://ucompensar.edu.co/wp-content/uploads/2024/12/FUNDACION-UNIVERSITARIA-COMPENSAR-UCOMPENSAR-9001-2024-11-06.pdf"
                     target="_blank">
@@ -271,7 +277,7 @@
         <p>© Fundación Universitaria Compensar - Todos los derechos reservados</p>
     </div>
 
-    <! </footer>
+    </footer>
 
         <!-- Font Awesome -->
         <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
