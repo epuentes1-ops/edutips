@@ -1,4 +1,40 @@
 <x-layouts.app :title="__('EduTips - Clases con alma')">
+    <style>
+        /* Estilo para el modal */
+        #imageModal {
+            display: none;
+            /* Ocultamos el modal inicialmente */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1050;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #imageModal img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            cursor: zoom-out;
+        }
+
+        #imageModal .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            color: white;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+
 
     <div class="flex flex-col items-center w-full gap-10 p-6">
 
@@ -36,7 +72,7 @@
 
         <div class="flex flex-col md:flex-row items-center justify-center gap-6 max-w-6xl mx-auto mt-8 px-4">
             <div class="w-full md:w-2/3 rounded-xl overflow-hidden shadow-lg">
-                <img src="/images/ccalma/Mod_form_UCompensar.png" alt="imagen" class="w-full h-auto object-cover">
+                <img src="/images/ccalma/Mod_form_UCompensar.png" alt="imagen" class="w-full h-auto object-cover" id="modelImage">
             </div>
 
             <div class="w-full md:w-1/3 text-center md:text-left">
@@ -265,6 +301,38 @@
 
         </div>
 
+
     </div>
+
+    <!-- Modal de imagen -->
+    <div id="imageModal">
+        <button class="close-btn">×</button> <!-- Botón de cierre -->
+    </div>
+
+    <script>
+        // Obtener el modal y la imagen
+        const imageModal = document.getElementById('imageModal');
+        const modelImage = document.getElementById('modelImage');
+        const closeBtn = document.createElement('button');
+
+        // Crear el botón de cierre
+        closeBtn.classList.add('close-btn');
+        closeBtn.innerHTML = '×'; // Carácter de cierre
+
+        // Función para abrir el modal
+        modelImage.onclick = function() {
+            const imgSrc = modelImage.src; // Obtener la URL de la imagen
+            imageModal.innerHTML = `<img src="${imgSrc}" alt="Imagen ampliada">`; // Establecer la imagen ampliada
+            imageModal.appendChild(closeBtn); // Añadir el botón de cierre
+            imageModal.style.display = 'flex'; // Mostrar el modal
+        };
+
+        // Función para cerrar el modal
+        closeBtn.onclick = function() {
+            imageModal.style.display = 'none'; // Ocultar el modal
+        };
+    </script>
+
+
     @include('partials.footer')
 </x-layouts.app>

@@ -28,6 +28,13 @@
         padding: 10px;
     }
 
+    .footer-column.small {
+        flex: 1 1 240px;
+        min-width: 240px;
+        border-right: 1px solid #777;
+        padding: 10px;
+    }
+
     .footer-column.large {
         flex: 2 1 300px;
     }
@@ -40,14 +47,14 @@
     .footer-column p,
     .footer-column a {
         color: #ccc;
-        font-size: 14px;
+        font-size: 13px;
         text-decoration: none;
         line-height: 1.6;
     }
 
-    .footer-column.large a {
+    .footer-column.small a {
         color: #ccc;
-        font-size: 12px;
+        font-size: 10px;
         text-decoration: none;
         line-height: 1.6;
     }
@@ -157,6 +164,7 @@
             }
 
             .footer-column,
+            .footer-column.small,
             .footer-column.large {
                 flex: 1 1 100%;
             }
@@ -186,7 +194,7 @@
 <footer class="footer">
     <div class="footer-top">
         <!-- Columna 1 -->
-        <div class="footer-column large">
+        <div class="footer-column small">
             <img src="https://ucompensar.edu.co/wp-content/uploads/2021/09/Logo-Fundacion-Universitaria-compensar.svg"
                 alt="Logo Fundación Universitaria Compensar" style="max-width: 200px; margin-bottom: 15px;">
             <p>

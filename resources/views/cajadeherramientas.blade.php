@@ -20,9 +20,8 @@
             z-index: 1060;
             /* Asegura que el botón esté por encima del contenido */
             color: #00adba;
-
-            /* Puedes cambiar el color del botón */
-            /* Ajuste para pantallas más pequeñas */
+            }
+            
             @media (max-width: 768px) {
                 #videoModal {
                     width: 100%;
@@ -71,7 +70,7 @@
             <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700 cursor-pointer group"
                 onclick="openModal('https://player.vimeo.com/video/1145351302', 'Nuestros cursos tienen un nuevo look', 'Porque aprender también puede sentirse fácil, cercano y visualmente bonito… Te damos la bienvenida a una nueva forma de vivir tus cursos virtuales.')">
                 <!-- Imagen del video -->
-                <img src="/images/miniaturas/banner7.png" alt="Nuestros cursos tienen un nuevo look"
+                <img src="/images/miniaturas/banner8.png" alt="Nuestros cursos tienen un nuevo look"
                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                 <p class="absolute bottom-4 left-4 text-white font-semibold">Nuestros cursos tienen un nuevo look</p>
             </div>
@@ -98,7 +97,7 @@
             <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700 cursor-pointer group"
                 onclick="openModal('https://player.vimeo.com/video/888123655', 'Creación de grupos manuales','En la virtualidad, los grupos son como los equipos de un salón: cada uno con su ritmo y su forma de aprender. En este video verás cómo crear y gestionar grupos paso a paso para acompañar más de cerca a tus estudiantes. Así tendrás clases más organizadas y entregas más claras.')">
                 <!-- Imagen del video -->
-                <img src="/images/miniaturas/banner5.png" alt="Creación de grupos manuales"
+                <img src="/images/miniaturas/banner11.png" alt="Creación de grupos manuales"
                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                 <p class="absolute bottom-4 left-4 text-white font-semibold">Creación de grupos manuales</p>
             </div>
@@ -128,7 +127,7 @@
             <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700 cursor-pointer group"
                 onclick="openModal('https://player.vimeo.com/video/990795221', 'Encuentros sincrónicos para dos o más grupos','Hay clases que merecen compartirse, donde distintos grupos se conectan y aprenden juntos. Con un solo encuentro, puedes unir ideas, voces y energía en una misma sesión. Porque enseñar también es eso: saber conectar personas y propósitos.')">
                 <!-- Imagen del video -->
-                <img src="/images/miniaturas/banner8.png" alt="Encuentros sincrónicos para dos o más grupos"
+                <img src="/images/miniaturas/banner12.png" alt="Encuentros sincrónicos para dos o más grupos"
                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                 <p class="absolute bottom-4 left-4 text-white font-semibold">Encuentros sincrónicos para dos o más
                     grupos</p>
@@ -156,7 +155,7 @@
             <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700 cursor-pointer group"
                 onclick="openModal('https://player.vimeo.com/video/887486769', 'Coevaluación docente (tarea)','En este video verás cómo calificar de forma individual o grupal y registrar las notas en el libro de calificaciones. Un proceso sencillo que refuerza la retroalimentación y el acompañamiento en cada clase virtual.')">
                 <!-- Imagen del video -->
-                <img src="/images/miniaturas/banner11.png" alt="Coevaluación docente (tarea)"
+                <img src="/images/miniaturas/banner7.png" alt="Coevaluación docente (tarea)"
                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                 <p class="absolute bottom-4 left-4 text-white font-semibold">Coevaluación docente (tarea)</p>
             </div>
@@ -165,7 +164,7 @@
             <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700 cursor-pointer group"
                 onclick="openModal('https://player.vimeo.com/video/1145348191', 'Consultar Libro de calificaciones','¿Alguna vez has sentido esa mezcla entre curiosidad y expectativa por ver cómo van tus estudiantes?  Este paso a paso está hecho para ti: simple, claro y con todo lo que necesitas para revisar las calificaciones sin enredos y acompañar mejor su proceso.')">
                 <!-- Imagen del video -->
-                <img src="/images/miniaturas/banner12.png" alt="Consultar Libro de calificaciones"
+                <img src="/images/miniaturas/banner5.png" alt="Consultar Libro de calificaciones"
                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                 <p class="absolute bottom-4 left-4 text-white font-semibold">Consultar Libro de calificaciones</p>
             </div>
@@ -185,7 +184,7 @@
 
         <!-- Modal (Pop-up) para mostrar el video -->
         <div id="videoModal"
-            class="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50 hidden">
+            class="fixed inset-0 bg-[#000000b3] bg-opacity-75 flex items-center justify-center z-50 hidden">
             <div class="bg-white dark:bg-gray-800 rounded-xl w-full max-w-4xl p-6 relative">
                 <!-- Botón de cierre ajustado para pantallas pequeñas -->
                 <button onclick="closeModal()"
