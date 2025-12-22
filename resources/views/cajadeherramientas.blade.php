@@ -42,7 +42,7 @@
         <!-- Banner principal -->
         <div
             class="relative w-full max-w-6xl aspect-[16/6] sm:aspect-[16/7] md:aspect-[16/5] lg:aspect-[16/4] overflow-hidden rounded-2xl shadow-xl">
-            <img src="/images/banners/bannertres.png" alt="Banner"
+            <img src="/images/banners/banner_3.jpg" alt="Banner"
                 class="w-full h-full object-cover object-center transition-opacity duration-700 ease-in-out">
         </div>
 

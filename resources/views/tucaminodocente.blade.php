@@ -5,7 +5,7 @@
         <!-- Banner principal -->
         <div x-data="{
             activeSlide: 0,
-            slides: ['/images/banners/bannerdos.png']
+            slides: ['/images/banners/banner_2.jpg']
         }" x-init="setInterval(() => activeSlide = (activeSlide + 1) % slides.length, 4000)"
             class="relative w-full max-w-6xl aspect-[16/6] sm:aspect-[16/7] md:aspect-[16/5] lg:aspect-[16/4] overflow-hidden rounded-2xl shadow-xl">
             <template x-for="(slide, index) in slides" :key="index">

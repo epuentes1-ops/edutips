@@ -20,7 +20,7 @@
             max-width: 90%;
             max-height: 90%;
             object-fit: contain;
-            cursor: zoom-out;
+            
         }
 
         #imageModal .close-btn {
@@ -41,7 +41,7 @@
         <!-- Banner principal -->
         <div x-data="{
             activeSlide: 0,
-            slides: ['/images/banners/banner4.png']
+            slides: ['/images/banners/banner_4.jpg']
         }" x-init="setInterval(() => activeSlide = (activeSlide + 1) % slides.length, 4000)"
             class="relative w-full max-w-6xl aspect-[16/6] sm:aspect-[16/7] md:aspect-[16/5] lg:aspect-[16/4] overflow-hidden rounded-2xl shadow-xl">
             <template x-for="(slide, index) in slides" :key="index">
@@ -72,7 +72,7 @@
 
         <div class="flex flex-col md:flex-row items-center justify-center gap-6 max-w-6xl mx-auto mt-8 px-4">
             <div class="w-full md:w-2/3 rounded-xl overflow-hidden shadow-lg">
-                <img src="/images/ccalma/Mod_form_UCompensar.png" alt="imagen" class="w-full h-auto object-cover" id="modelImage">
+                <img src="/images/ccalma/Mod_form_UCompensar.png" alt="imagen" class="w-full h-auto object-cover" id="modelImage" style="cursor: pointer;">
             </div>
 
             <div class="w-full md:w-1/3 text-center md:text-left">
