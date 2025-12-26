@@ -41,7 +41,7 @@
                 <h2 class="fw-semibold mb-3">Bienvenidos a</h2>
 
                 <!-- Logo principal -->
-                <img src="{{ asset('images/logos_1/LogoEdutips.svg') }}" 
+                <img src="{{ asset('images/logos_1/logoEdutips.svg') }}" 
                      alt="Logo2" 
                      class="img-fluid mb-4"
                      style="max-width: 250px; width: 90%; height: auto;">
