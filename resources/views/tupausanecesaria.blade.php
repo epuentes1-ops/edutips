@@ -226,5 +226,7 @@
 
 
     </div>
+
+    <x-section-rating sectionKey="tupausanecesaria" />
 @include('partials.footer')
 </x-layouts.app>

@@ -141,5 +141,8 @@
         </div> <!-- fin x-data tabs -->
 
     </div>
+
+    <x-section-rating sectionKey="aldia" />
+
     @include('partials.footer')
 </x-layouts.app>

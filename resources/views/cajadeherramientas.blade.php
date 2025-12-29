@@ -20,21 +20,21 @@
             z-index: 1060;
             /* Asegura que el botón esté por encima del contenido */
             color: #00adba;
-            }
-            
-            @media (max-width: 768px) {
-                #videoModal {
-                    width: 100%;
-                    /* Usa el 100% del ancho en pantallas más pequeñas */
-                    height: 100%;
-                    /* Usa el 100% de la altura de la pantalla */
-                }
+        }
 
-                #videoModal iframe {
-                    height: 70vh;
-                    /* Ajusta la altura del video */
-                }
+        @media (max-width: 768px) {
+            #videoModal {
+                width: 100%;
+                /* Usa el 100% del ancho en pantallas más pequeñas */
+                height: 100%;
+                /* Usa el 100% de la altura de la pantalla */
             }
+
+            #videoModal iframe {
+                height: 70vh;
+                /* Ajusta la altura del video */
+            }
+        }
     </style>
 
 
@@ -229,5 +229,8 @@
             document.getElementById('modalText').innerText = '';
         }
     </script>
+
+    <x-section-rating sectionKey="cajadeherramientas" />
+
     @include('partials.footer')
 </x-layouts.app>

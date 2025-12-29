@@ -6,6 +6,7 @@ use App\Models\User;
 use Livewire\Volt\Volt;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\SAMLController;
+use App\Http\Controllers\SectionRatingController;
 
 Route::prefix('saml')->group(function () {
 
@@ -63,12 +64,12 @@ Route::view('cajadeherramientas', 'cajadeherramientas')
 
 Route::view('clasesconalma', 'clasesconalma')
     ->middleware(['auth', 'verified'])
-    ->name('clasesconalma'); 
+    ->name('clasesconalma');
 
 Route::view('tupausanecesaria', 'tupausanecesaria')
     ->middleware(['auth', 'verified'])
     ->name('tupausanecesaria');
-    
+
 Route::view('aldia', 'aldia')
     ->middleware(['auth', 'verified'])
     ->name('aldia');
@@ -85,4 +86,17 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/appearance', 'settings.appearance')->name('appearance.edit');
 });
 
-require __DIR__.'/auth.php';
+
+// --- Sección para manejar las calificaciones de secciones por parte de los usuarios autenticados---
+
+    // ruta para almacenar la calificación de una sección
+Route::post('/section-rating', [SectionRatingController::class, 'store'])
+    ->middleware('auth') 
+    ->name('section-rating.store');
+
+    // ruta para obtener la calificación de una sección
+Route::get('/section-rating', [SectionRatingController::class, 'show'])
+    ->middleware('auth')
+    ->name('section-rating.show');
+
+require __DIR__ . '/auth.php';

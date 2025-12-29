@@ -54,6 +54,134 @@
 </head>
 
 <body class="min-h-screen bg-white dark:bg-zinc-800">
+
+    <script>
+        function paintStars(wrap, n) {
+            wrap.querySelectorAll('[data-star]').forEach(btn => {
+                const v = parseInt(btn.getAttribute('data-star'), 10);
+                const icon = btn.querySelector('span');
+                icon.classList.toggle('text-yellow-400', v <= n);
+                icon.classList.toggle('text-gray-400', v > n);
+            });
+        }
+
+        async function postRating(sectionKey, rating) {
+            const csrf = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+
+            const res = await fetch("{{ route('section-rating.store') }}", {
+                method: "POST",
+                credentials: "same-origin",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                    ...(csrf ? {
+                        "X-CSRF-TOKEN": csrf
+                    } : {})
+                },
+                body: JSON.stringify({
+                    section_key: sectionKey,
+                    rating
+                })
+            });
+
+            const ct = res.headers.get("content-type") || "";
+            const payload = ct.includes("application/json") ? await res.json() : await res.text();
+            return {
+                res,
+                payload
+            };
+        }
+
+        document.addEventListener("click", async (e) => {
+            const btn = e.target.closest("[data-star]");
+            if (!btn) return;
+
+            const wrap = btn.closest("[data-section-rating]");
+            if (!wrap) return;
+
+            const sectionKey = wrap.getAttribute("data-section-key");
+            const rating = parseInt(btn.getAttribute("data-star"), 10);
+            const msg = wrap.parentElement.querySelector("[data-rating-msg]");
+
+            try {
+                const {
+                    res,
+                    payload
+                } = await postRating(sectionKey, rating);
+
+                if (!res.ok || (payload && payload.ok === false)) {
+                    console.error("Rating error:", res.status, payload);
+                    if (msg) msg.textContent = `No se pudo guardar (HTTP ${res.status}).`;
+                    return;
+                }
+
+                paintStars(wrap, rating);
+                if (msg) msg.textContent = "¡Gracias! Calificación guardada.";
+            } catch (err) {
+                console.error("Fetch failed:", err);
+                if (msg) msg.textContent = "Error de red/JS. Revisa consola.";
+            }
+        });
+    </script>
+
+    <script>
+        async function loadRatingFor(wrap) {
+            const sectionKey = wrap.getAttribute('data-section-key');
+
+            // Evita spam de requests: si consultó esta sección hace < 2s, no repite
+            const now = Date.now();
+            const lastKey = wrap.dataset.lastKey;
+            const lastAt = parseInt(wrap.dataset.lastAt || "0", 10);
+
+            if (lastKey === sectionKey && (now - lastAt) < 2000) return;
+
+            wrap.dataset.lastKey = sectionKey;
+            wrap.dataset.lastAt = String(now);
+
+            try {
+                const url = new URL("{{ route('section-rating.show') }}", window.location.origin);
+                url.searchParams.set('section_key', sectionKey);
+
+                const res = await fetch(url.toString(), {
+                    method: "GET",
+                    credentials: "same-origin",
+                    headers: {
+                        "Accept": "application/json"
+                    }
+                });
+
+                const data = await res.json();
+                if (data?.ok) {
+                    paintStars(wrap, parseInt(data.rating || 0, 10));
+                }
+            } catch (e) {
+                console.error("loadRatingFor failed:", e);
+            }
+        }
+
+        function hydrateAllRatings() {
+            document.querySelectorAll('[data-section-rating]').forEach(loadRatingFor);
+        }
+
+        // Carga normal
+        document.addEventListener("DOMContentLoaded", hydrateAllRatings);
+
+        // Livewire Navigate (TU PROYECTO USA wire:navigate)
+        document.addEventListener("livewire:navigated", hydrateAllRatings);
+
+        // Extra por si hay BFCache / volver atrás
+        window.addEventListener("pageshow", hydrateAllRatings);
+
+        // Observa cambios del DOM (Flux/Livewire swaps)
+        const obs = new MutationObserver(() => hydrateAllRatings());
+        obs.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    </script>
+
+
+
     <flux:sidebar sticky stashable class="border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
         <flux:sidebar.toggle class="lg:hidden" icon="x-mark" />
 
@@ -225,7 +353,7 @@
     </flux:header>
 
     {{ $slot }}
-    
+
 
     @fluxScripts
 </body>

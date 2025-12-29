@@ -40,5 +40,8 @@
         </div>
 
     </div>
+    <x-section-rating sectionKey="aquiempiezatodo" />
+
     @include('partials.footer')
+
 </x-layouts.app>

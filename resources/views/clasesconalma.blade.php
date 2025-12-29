@@ -20,7 +20,7 @@
             max-width: 90%;
             max-height: 90%;
             object-fit: contain;
-            
+
         }
 
         #imageModal .close-btn {
@@ -72,7 +72,8 @@
 
         <div class="flex flex-col md:flex-row items-center justify-center gap-6 max-w-6xl mx-auto mt-8 px-4">
             <div class="w-full md:w-2/3 rounded-xl overflow-hidden shadow-lg">
-                <img src="/images/ccalma/Mod_form_UCompensar.png" alt="imagen" class="w-full h-auto object-cover" id="modelImage" style="cursor: pointer;">
+                <img src="/images/ccalma/Mod_form_UCompensar.png" alt="imagen" class="w-full h-auto object-cover"
+                    id="modelImage" style="cursor: pointer;">
             </div>
 
             <div class="w-full md:w-1/3 text-center md:text-left">
@@ -333,6 +334,8 @@
         };
     </script>
 
+    <x-section-rating sectionKey="clasesconalma" />
 
     @include('partials.footer')
+
 </x-layouts.app>

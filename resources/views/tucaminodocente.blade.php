@@ -1,6 +1,5 @@
 <x-layouts.app :title="__('EduTips - Tu camino docente')">
-    <div
-        class="flex flex-col items-center w-full gap-10 p-6">
+    <div class="flex flex-col items-center w-full gap-10 p-6">
 
         <!-- Banner principal -->
         <div x-data="{
@@ -86,5 +85,8 @@
             </div>
         </div>
     </div>
-@include('partials.footer')
+
+    <x-section-rating sectionKey="tucaminodocente" />
+
+    @include('partials.footer')
 </x-layouts.app>
