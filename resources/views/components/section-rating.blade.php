@@ -62,7 +62,7 @@
                             if (!res.ok || !data.ok) throw new Error(data?.message || 'Error');
 
                             paint(rating);
-                            if (msg) msg.textContent = '¡Gracias! Calificación guardada.';
+                            if (msg) msg.textContent = '¡Gracias! Tú calificación nos ayuda mejorar.';
                         } catch (e) {
                             if (msg) msg.textContent = 'No se pudo guardar. Intenta de nuevo.';
                         }
