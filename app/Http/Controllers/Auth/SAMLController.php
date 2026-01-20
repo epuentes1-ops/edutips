@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use OneLogin\Saml2\Auth as Saml2Auth;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+use App\Models\User;
 
 class SAMLController extends Controller
 {
@@ -50,13 +53,19 @@ class SAMLController extends Controller
         }
 
         // Crear o actualizar usuario local
-        $user = \App\Models\User::updateOrCreate(
+        $user = User::firstOrCreate(
             ['email' => $email],
             [
                 'name' => $name,
+                'password' => Hash::make(Str::random(32)),
                 'email_verified_at' => now(),
             ]
         );
+        // Si ya existía, opcionalmente actualiza el nombre/verificación
+        $user->update([
+            'name' => $name,
+            'email_verified_at' => $user->email_verified_at ?? now(),
+        ]);
 
         Auth::login($user);
 

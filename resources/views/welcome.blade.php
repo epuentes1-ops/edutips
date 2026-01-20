@@ -46,6 +46,7 @@
                      class="img-fluid mb-4"
                      style="max-width: 250px; width: 90%; height: auto;">
 
+                     
                 <!-- Botones -->
                 <div class="w-100" style="max-width: 300px;">
                     @if (Route::has('login'))

@@ -74,9 +74,9 @@ new #[Layout('components.layouts.auth')] class extends Component {
 }; ?>
 
 <div class="flex flex-col gap-6">
-    
-    
-    <x-auth-header :title="__('Ingresa tus credenciales de acceso aquí')" :description="__('Ingrese su correo electrónico y contraseña a continuación para iniciar sesión')" />
+
+
+    <x-auth-header :title="__('Accede a EduTips con tu cuenta Institucional')" :description="__('')" />
 
     <!-- Session Status -->
     <x-auth-session-status class="text-center" :status="session('status')" />
@@ -109,24 +109,24 @@ new #[Layout('components.layouts.auth')] class extends Component {
     </form>
 
     <div class="flex flex-col gap-6">
-    <a href="{{ route('saml.login') }}"
-        class="flex items-center justify-center gap-2 w-full px-4 py-2.5
+        <a href="{{ route('saml.login') }}"
+            class="flex items-center justify-center gap-2 w-full px-4 py-2.5
                bg-[#2F2FEE] hover:bg-[#1A1A9E] text-white font-semibold
                rounded-lg shadow-md transition-all duration-300
                focus:ring-2 focus:ring-offset-2 focus:ring-[#2F2FEE]">
 
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" class="w-5 h-5 fill-white">
-            <path d="M0 0h10.5v10.5H0zM12.5 0H23v10.5H12.5zM0 12.5h10.5V23H0zM12.5 12.5H23V23H12.5z"/>
-        </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" class="w-5 h-5 fill-white">
+                <path d="M0 0h10.5v10.5H0zM12.5 0H23v10.5H12.5zM0 12.5h10.5V23H0zM12.5 12.5H23V23H12.5z" />
+            </svg>
 
-        Iniciar sesión con Microsoft
-    </a>
-</div>
+            Iniciar sesión con Microsoft
+        </a>
+    </div>
 
-    @if (Route::has('register'))
+    {{-- @if (Route::has('register'))
         <div class="space-x-1 rtl:space-x-reverse text-center text-sm text-zinc-600 dark:text-zinc-400">
             <span>{{ __('¿No tienes una cuenta?') }}</span>
             <flux:link :href="route('register')" wire:navigate>{{ __('Regístrate') }}</flux:link>
         </div>
-    @endif
+    @endif --}}
 </div>
