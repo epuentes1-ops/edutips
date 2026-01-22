@@ -76,7 +76,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
 <div class="flex flex-col gap-6">
 
 
-    <x-auth-header :title="__('Accede a EduTips con tu cuenta Institucional')" :description="__('')" />
+    <x-auth-header :title="__('Potencia tu enseñanza con EduTips')" :description="__('👉 Comienza aquí')" />
 
     <!-- Session Status -->
     <x-auth-session-status class="text-center" :status="session('status')" />
