@@ -9,16 +9,16 @@ return [
     */
     'sp' => [
         // Entity ID del SP (tu aplicación Laravel)
-        'entityId' => env('SAML2_SP_ENTITYID', 'https://edutips.test/saml/metadata'),
+        'entityId' => env('SAML2_SP_ENTITYID', 'https://edutips.ucompensar.edu.co/saml/metadata'),
 
         // URL donde Azure enviará la respuesta SAML
         'assertionConsumerService' => [
-            'url' => env('SAML2_SP_ACS', 'https://edutips.test/saml/acs'),
+            'url' => env('SAML2_SP_ACS', 'https://edutips.ucompensar.edu.co/saml/acs'),
         ],
 
         // Endpoint para Single Logout (opcional)
         'singleLogoutService' => [
-            'url' => env('SAML2_SP_SLS', 'https://edutips.test/saml/logout'),
+            'url' => env('SAML2_SP_SLS', 'https://edutips.ucompensar.edu.co/saml/logout'),
         ],
 
         // Configuración del certificado del SP si usas firma (no obligatorio en local)
