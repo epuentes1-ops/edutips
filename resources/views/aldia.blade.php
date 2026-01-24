@@ -87,7 +87,7 @@
                     <div class="w-full rounded-xl overflow-hidden shadow-md">
                         <!-- Contenedor para imagen centrada y responsiva -->
                         <div class="flex justify-center items-center w-full">
-                            <img src="/images/aldia/canales-de-comunicación-2.png" alt="imagen"
+                            <img src="/images/aldia/canales-de-comunicacion-2.png" alt="imagen"
                                 class="w-full h-auto object-cover max-w-full rounded-xl shadow-lg">
                         </div>
                     </div>
