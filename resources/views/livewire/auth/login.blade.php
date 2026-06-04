@@ -141,7 +141,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
     <x-auth-header :title="__('Potencia tu enseñanza con EduTips')" :description="__('👉 Comienza aquí')" />
 
     <!-- Session Status -->
-    <x-auth-session-status class="text-center" :status="session('status')" />
+    {{-- <x-auth-session-status class="text-center" :status="session('status')" />
 
     <form method="POST" wire:submit="login" class="flex flex-col gap-6">
         <!-- Email Address -->
@@ -168,7 +168,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
                 {{ __('Iniciar Sesión') }}
             </flux:button>
         </div>
-    </form>
+    </form> --}}
 
     {{-- LOGIN MICROSOFT --}}
     <div class="flex flex-col gap-4">
