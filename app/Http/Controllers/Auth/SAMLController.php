@@ -9,6 +9,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Models\User;
+use App\Models\DataProcessingAcceptance;
+use App\Services\AuthAuditService;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class SAMLController extends Controller
 {
@@ -27,49 +31,143 @@ class SAMLController extends Controller
      */
     public function acs(Request $request)
     {
-        $saml = new Saml2Auth(config('saml2'));
-        $saml->processResponse();
+        try {
+            $saml = new Saml2Auth(config('saml2'));
+            $saml->processResponse();
 
-        if ($saml->getErrors()) {
-            return response()->json([
-                'error' => 'SAML Response Error',
-                'details' => $saml->getErrors()
-            ], 400);
-        }
+            if ($saml->getErrors()) {
+                AuthAuditService::log(
+                    'login_failed',
+                    $request,
+                    null,
+                    null,
+                    false,
+                    'SAML Response Error: ' . implode(', ', $saml->getErrors())
+                );
 
-        if (!$saml->isAuthenticated()) {
-            return redirect()->route('login')->withErrors(['No autenticado por el IdP']);
-        }
+                return response()->json([
+                    'error' => 'SAML Response Error',
+                    'details' => $saml->getErrors()
+                ], 400);
+            }
 
-        // Obtener datos del usuario desde Azure
-        $attributes = $saml->getAttributes();
-        $email = $attributes['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'][0] ?? null;
-        $name  = $attributes['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'][0] ?? 'Usuario Microsoft';
+            if (!$saml->isAuthenticated()) {
+                AuthAuditService::log(
+                    'login_failed',
+                    $request,
+                    null,
+                    null,
+                    false,
+                    'Usuario no autenticado por el IdP'
+                );
 
-        if (!$email) {
-            return response()->json([
-                'error' => 'Azure no envió el atributo email'
-            ], 400);
-        }
+                return redirect()->route('login')->withErrors(['No autenticado por el IdP']);
+            }
 
-        // Crear o actualizar usuario local
-        $user = User::firstOrCreate(
-            ['email' => $email],
-            [
+            $attributes = $saml->getAttributes();
+
+            $email = $attributes['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'][0] ?? null;
+            $name  = $attributes['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'][0] ?? 'Usuario Microsoft';
+
+            if (!$email) {
+                AuthAuditService::log(
+                    'login_failed',
+                    $request,
+                    null,
+                    null,
+                    false,
+                    'Azure no envió el atributo email'
+                );
+
+                return response()->json([
+                    'error' => 'Azure no envió el atributo email'
+                ], 400);
+            }
+
+            $user = User::firstOrCreate(
+                ['email' => $email],
+                [
+                    'name' => $name,
+                    'password' => Hash::make(Str::random(32)),
+                    'email_verified_at' => now(),
+                ]
+            );
+
+            $user->update([
                 'name' => $name,
-                'password' => Hash::make(Str::random(32)),
-                'email_verified_at' => now(),
-            ]
-        );
-        // Si ya existía, opcionalmente actualiza el nombre/verificación
-        $user->update([
-            'name' => $name,
-            'email_verified_at' => $user->email_verified_at ?? now(),
-        ]);
+                'email_verified_at' => $user->email_verified_at ?? now(),
+            ]);
 
-        Auth::login($user);
+            DB::transaction(function () use ($user, $request) {
 
-        return redirect('/aquiempiezatodo');
+                if (session('data_policy_accepted')) {
+
+                    $policyVersion = session('data_policy_version', 'v1.0');
+
+                    $alreadyAccepted = DataProcessingAcceptance::where('user_id', $user->id)
+                        ->where('policy_version', $policyVersion)
+                        ->where('accepted', true)
+                        ->exists();
+
+                    if (!$alreadyAccepted) {
+                        DataProcessingAcceptance::create([
+                            'user_id' => $user->id,
+                            'email' => $user->email,
+                            'accepted' => true,
+                            'policy_version' => $policyVersion,
+                            'accepted_at' => session('data_policy_accepted_at', now()),
+                            'ip_address' => session('data_policy_ip', $request->ip()),
+                            'user_agent' => session('data_policy_user_agent', $request->userAgent()),
+                        ]);
+                    }
+
+                    AuthAuditService::log(
+                        'data_policy_accepted',
+                        $request,
+                        $user,
+                        $user->email,
+                        true,
+                        null,
+                        [
+                            'policy_version' => $policyVersion,
+                            'already_accepted' => $alreadyAccepted,
+                        ]
+                    );
+
+                    session()->forget([
+                        'data_policy_accepted',
+                        'data_policy_accepted_at',
+                        'data_policy_version',
+                        'data_policy_ip',
+                        'data_policy_user_agent',
+                    ]);
+                }
+
+                AuthAuditService::log(
+                    'login_success',
+                    $request,
+                    $user,
+                    $user->email,
+                    true
+                );
+            });
+
+            Auth::login($user);
+
+            return redirect('/aquiempiezatodo');
+        } catch (\Throwable $e) {
+
+            AuthAuditService::log(
+                'login_failed',
+                $request,
+                null,
+                null,
+                false,
+                $e->getMessage()
+            );
+
+            throw $e;
+        }
     }
 
     /**
@@ -88,10 +186,25 @@ class SAMLController extends Controller
      */
     public function logout()
     {
+        $user = Auth::user();
+
+        if ($user) {
+            AuthAuditService::log(
+                'logout',
+                request(),
+                $user,
+                $user->email,
+                true
+            );
+        }
+
         $saml = new Saml2Auth(config('saml2'));
         $logoutUrl = $saml->logout(null, [], null, null, true);
 
         Auth::logout();
+
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
 
         return redirect($logoutUrl);
     }
