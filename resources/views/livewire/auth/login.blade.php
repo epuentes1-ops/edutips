@@ -143,7 +143,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
     <!-- Session Status -->
     <x-auth-session-status class="text-center" :status="session('status')" />
 
-    <form method="POST" wire:submit="login" class="flex flex-col gap-6">
+    {{-- <form method="POST" wire:submit="login" class="flex flex-col gap-6">
         <!-- Email Address -->
         <flux:input wire:model="email" :label="__('Correo electrónico')" type="email" required autofocus
             autocomplete="email" placeholder="email@example.com" />
@@ -168,7 +168,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
                 {{ __('Iniciar Sesión') }}
             </flux:button>
         </div>
-    </form>
+    </form> --}}
 
     {{-- LOGIN MICROSOFT --}}
     <div class="flex flex-col gap-4">
