@@ -141,9 +141,9 @@ new #[Layout('components.layouts.auth')] class extends Component {
     <x-auth-header :title="__('Potencia tu enseñanza con EduTips')" :description="__('👉 Comienza aquí')" />
 
     <!-- Session Status -->
-    <x-auth-session-status class="text-center" :status="session('status')" />
+    {{-- <x-auth-session-status class="text-center" :status="session('status')" />
 
-    {{-- <form method="POST" wire:submit="login" class="flex flex-col gap-6">
+    <form method="POST" wire:submit="login" class="flex flex-col gap-6">
         <!-- Email Address -->
         <flux:input wire:model="email" :label="__('Correo electrónico')" type="email" required autofocus
             autocomplete="email" placeholder="email@example.com" />

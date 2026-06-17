@@ -108,8 +108,10 @@
                 <!-- Imagen del video -->
                 <img src="/images/miniaturas/banner6.png" alt="Los estudiantes pueden crear sus propios grupos"
                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                <p class="absolute bottom-4 left-4 text-white font-semibold">Los estudiantes pueden crear sus
-                    propios grupos</p>
+                <p
+                    class="absolute bottom-2 left-4 right-4 text-white font-semibold text-sm md:text-base leading-tight whitespace-normal break-words">
+                    Los estudiantes pueden crear sus propios grupos
+                </p>
             </div>
 
             <!-- Video 7 -->
@@ -119,8 +121,10 @@
                 <img src="/images/miniaturas/banner2.png"
                     alt="Creación de encuentros sincrónicos en la Solución E-Learning"
                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                <p class="absolute bottom-4 left-4 text-white font-semibold">Creación de encuentros sincrónicos en la
-                    Solución E-Learning</p>
+                <p
+                    class="absolute bottom-2 left-4 right-4 text-white font-semibold text-sm md:text-base leading-tight whitespace-normal break-words">
+                    Creación de encuentros sincrónicos en la Solución E-Learning
+                </p>
             </div>
 
             <!-- Video 8 -->
@@ -129,8 +133,10 @@
                 <!-- Imagen del video -->
                 <img src="/images/miniaturas/banner8.png" alt="Encuentros sincrónicos para dos o más grupos"
                     class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                <p class="absolute bottom-4 left-4 text-white font-semibold">Encuentros sincrónicos para dos o más
-                    grupos</p>
+                <p
+                    class="absolute bottom-2 left-4 right-4 text-white font-semibold text-sm md:text-base leading-tight whitespace-normal break-words">
+                    Encuentros sincrónicos para dos o más grupos
+                </p>
             </div>
 
             <!-- Video 9 -->
